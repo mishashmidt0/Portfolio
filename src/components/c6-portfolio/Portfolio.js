@@ -1,8 +1,9 @@
 import React from 'react';
+import style from "./portfolio.module.scss"
 
 export const Portfolio = () => {
     return (
-        <section className="portfolio section" id="portfolio">
+        <section className={`${style.portfolio} section`} id="portfolio">
             <div className="container container--m">
                 <h2 className="title portfolio__title scroll-item">My Recent Work</h2>
                 <p className="subtitle portfolio__subtitle scroll-item">Here are a few projects I've worked on recently. You can see

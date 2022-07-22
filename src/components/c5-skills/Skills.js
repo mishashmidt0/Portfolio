@@ -2,9 +2,11 @@ import React from 'react';
 
 export const Skills = () => {
     return (
-        <div>
+        <section className="skills section" id="skills">
+            <div className="container skills__container">
 
-        </div>
+            </div>
+        </section>
     );
 };
 

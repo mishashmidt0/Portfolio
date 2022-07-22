@@ -1,5 +1,5 @@
 import React from 'react';
-
+import myPhoto from "../../img/MyPhoto.jpg"
 export const About = () => {
     return (
         <section className="about section" id="about">
@@ -7,8 +7,7 @@ export const About = () => {
                 <div className="about__photo scroll-item">
                     <figure className="about__photo-wrapper scroll-show">
                         <picture>
-                            <source type="image/webp" srcSet="img/MyPhoto.jpg"/>
-                            <img src="img/MyPhoto.jpg" alt="Ponomarenko Mikhail photo"/>
+                            <img src={myPhoto} alt="MyPhoto"/>
                         </picture>
                     </figure>
                 </div>

@@ -21,7 +21,7 @@
 }
 
 %bdrs {
-  border-radius: 0px;
+  border-radius: 0;
 }
 
 %shadow {
@@ -281,7 +281,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  opacity: 0;
+  opacity: 1;
   transform: translate3d(0, -100%, 50px);
   visibility: hidden;
   transition: opacity 0.7s, transform 0.7s, visibility 0.7s;
@@ -604,29 +604,6 @@ body {
       padding: 0;
     }
 
-    /* &::after {
-      @extend %bdrs;
-
-      content: "";
-      position: absolute;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      top: -10%;
-      right: -10%;
-      border: 5px solid $color-grey;
-      opacity: 0;
-      transition: 0.2s ease-in-out;
-
-      .scroll-item--active & {
-        opacity: 1;
-      }
-
-      @include breakpoint-max(md) {
-        display: none;
-      }
-    } */
-
     &-wrapper {
       @extend %bdrs;
 
@@ -683,8 +660,53 @@ body {
 }
 // === / ABOUT ===
 
-// === CERTIFICATES ===
-.certificates {
+
+// === SKILLS ===
+.skills {
+  height: 40vh;
+  border-bottom: 2px solid $color-grey;
+  overflow: hidden;
+
+  &__container {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: 1s;
+  }
+
+  &__list {
+    @extend %list;
+
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    // width: 50px;
+    text-align: center;
+    transition: $transition;
+
+    &::before {
+      margin-bottom: 10px;
+      font-size: $fs-xxl;
+      transition: transform $transition;
+    }
+
+    &:hover {
+      color: $color-primary;
+      transform: scale(1.5);
+    }
+  }
+}
+// === skills ===
+
+// ===  contact ===
+.contacts {
+  height: 40vh;
   background-color: $color-grey;
 
   &__title {
@@ -707,12 +729,12 @@ body {
 
     &:nth-child(2) .certificates__card {
       transition: background-color 0.3s, transform 0.6s ease-in-out 1s,
-        opacity 0.8s 1s;
+      opacity 0.8s 1s;
     }
 
     &:nth-child(3) .certificates__card {
       transition: background-color 0.3s, transform 0.6s ease-in-out 1.3s,
-        opacity 0.8s 1.3s;
+      opacity 0.8s 1.3s;
     }
 
     @include breakpoint-max(lg) {
@@ -722,7 +744,7 @@ body {
       &:nth-child(2) .certificates__card,
       &:nth-child(3) .certificates__card {
         transition: background-color 0.3s, transform 0.6s ease-in-out 0.5s,
-          opacity 0.8s 0.5s;
+        opacity 0.8s 0.5s;
       }
     }
 
@@ -754,7 +776,7 @@ body {
 
     opacity: 0;
     transition: background-color 0.3s, transform 0.6s ease-in-out 0.5s,
-      opacity 0.8s 0.5s;
+    opacity 0.8s 0.5s;
     transform: translateX(-20%);
 
     &::before {
@@ -801,48 +823,8 @@ body {
     }
   }
 }
-// === / CERTIFICATES ===
+// === / contact ===
 
-// === SKILLS ===
-.skills {
-  border-bottom: 2px solid $color-grey;
-  overflow: hidden;
-
-  &__container {
-    padding-top: 70px;
-    padding-bottom: 70px;
-    opacity: 0;
-    transform: translateX(100%);
-    transition: 1s;
-  }
-
-  &__list {
-    @extend %list;
-
-    display: flex;
-    justify-content: space-between;
-    width: 100vw;
-  }
-
-  &__item {
-    display: flex;
-    flex-direction: column;
-    // width: 50px;
-    text-align: center;
-    transition: $transition;
-
-    &::before {
-      margin-bottom: 10px;
-      font-size: $fs-xxl;
-      transition: transform $transition;
-    }
-
-    &:hover {
-      color: $color-primary;
-      transform: scale(1.5);
-    }
-  }
-}
 
 // swiper
 .swiper-wrapper {
@@ -850,430 +832,13 @@ body {
 }
 // === / SKILLS ===
 
-// === CODE EXAMPLE ===
-.code-example {
-  background-color: $color-grey;
-}
 
-.code-example__title,
-.code-example__subtitle,
-.code-example__card {
-  opacity: 0;
-  transform: translateY(100%);
-  transition: 1.2s ease-in-out;
-}
 
-.code-example__card {
-  @extend %shadow;
 
-  transform: translateY(30%);
-  transition: 1.2s ease-in-out;
-  background-color: $color-white;
 
-  code {
-    background-color: $color-white;
-  }
-}
-
-// === / CODE EXAMPLE ===
-
-// === PORTFOLIO ===
-.portfolio {
-  text-align: center;
-
-  &__title {
-    opacity: 0;
-    transform: translateY(100%);
-    transition: 1.2s ease-in-out;
-
-    &::after {
-      left: 50%;
-      width: 90px;
-      transform: translateX(-50%);
-    }
-  }
-
-  &__subtitle {
-    margin: 0;
-    margin-bottom: 40px;
-
-    opacity: 0;
-    transform: translateY(100%);
-    transition: 1.2s ease-in-out 0.5s;
-  }
-
-  &__list {
-    @extend %list;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    @include breakpoint-max(xl) {
-      justify-content: center;
-    }
-  }
-
-  &__item {
-    flex-basis: 30%;
-    margin-top: 50px;
-
-    opacity: 0;
-    transform: scale(0);
-    transition: 1.2s ease-in-out;
-
-    &.scroll-item--active {
-      transform: scale(1);
-    }
-
-    @include breakpoint-max(xl) {
-      flex-basis: 32%;
-      margin-right: 50px;
-
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
-    }
-
-    @include breakpoint-max(lg) {
-      flex-basis: 46%;
-    }
-
-    @include breakpoint-max(md) {
-      flex-basis: 70%;
-      margin-right: 0;
-    }
-
-    @include breakpoint-max(sm) {
-      flex-basis: 80%;
-    }
-
-    @include breakpoint-max(xs) {
-      flex-basis: 100%;
-    }
-  }
-
-  &__card {
-    $parent: &;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    height: 100%;
-    margin: 0;
-    color: $color-white;
-    font-weight: $fw-regular;
-    border: 2px solid $color-grey;
-    transform-style: preserve-3d;
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: $color-text;
-      opacity: 0;
-      transition: $transition;
-    }
-
-    &:hover {
-      &::after {
-        opacity: 0.9;
-      }
-
-      #{$parent}-img img {
-        transform: scale(1.3);
-      }
-
-      #{$parent}-about {
-        opacity: 1;
-        transform: translate3d(0, 0, 40px);
-      }
-
-      #{$parent}-description,
-      #{$parent}-link {
-        transform: translate(0, 0);
-      }
-    }
-
-    &-img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: 0.5s ease-in-out;
-
-        .portfolio__item:nth-child(1) & {
-          object-position: left bottom;
-        }
-        .portfolio__item:nth-child(4) & {
-          object-position: right bottom;
-        }
-      }
-    }
-    &-about {
-      flex-grow: 1;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-      min-height: 300px;
-      padding: 20% 10%;
-      transform-style: preserve-3d;
-      overflow: hidden;
-      opacity: 0;
-
-      @include breakpoint-max(sm) {
-        padding: 20% 5%;
-        min-height: auto;
-      }
-    }
-
-    &-title {
-      color: $color-primary;
-      font-size: $fs-m;
-      font-weight: 400;
-
-      @include breakpoint-max(xs) {
-        font-size: $fs-s;
-      }
-    }
-
-    &-description {
-      flex-grow: 1;
-      margin-top: 20px;
-      margin-bottom: 25px;
-      transform: translate(0, -120%);
-      transition: 0.7s;
-
-      @include breakpoint-max(xs) {
-        font-size: $fs-xxs;
-      }
-    }
-
-    &-link {
-      display: inline-block;
-      color: $color-white;
-      font-size: $fs-xs;
-      font-weight: $fw-regular;
-      letter-spacing: 0.8px;
-      transition: 0.5s;
-      transform: translate(0, 50%);
-
-      @include breakpoint-max(xs) {
-        font-size: $fs-xxs;
-      }
-
-      &:hover {
-        color: $color-text;
-        text-shadow: 0 0 3px rgba(85, 87, 215, 0.2);
-      }
-    }
-  }
-}
-// === / PORTFOLIO ===
-
-// === EXPERIENCE ===
-.experience {
-  background-color: $color-grey;
-  overflow: hidden;
-
-  &__inner {
-    display: flex;
-    align-items: start;
-    margin-bottom: 100px;
-
-    @include breakpoint-max(md) {
-      flex-direction: column;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__title {
-    min-width: 40%;
-
-    opacity: 0;
-    transition: 1.5s;
-  }
-
-  &__list {
-    @extend %list;
-
-    flex-grow: 1;
-
-    @include breakpoint-max(lg) {
-      margin-top: 80px;
-    }
-
-    @include breakpoint-max(md) {
-      margin-top: 20px;
-      margin-left: 90px;
-    }
-
-    @include breakpoint-max(xs) {
-      margin-left: 50px;
-    }
-  }
-
-  &__item {
-    position: relative;
-    padding-bottom: 40px;
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      left: -70px;
-      width: 3px;
-      height: 50%;
-      background-color: $color-primary;
-      transform: translateX(-50%);
-
-      @include breakpoint-max(xs) {
-        left: -30px;
-      }
-    }
-
-    &::before {
-      bottom: 50%;
-    }
-
-    &::after {
-      top: 50%;
-    }
-
-    &:first-child {
-      &::before {
-        display: none;
-      }
-    }
-
-    &:last-child {
-      padding-bottom: 0;
-
-      &::after {
-        display: none;
-      }
-    }
-
-    &:nth-child(2) .experience__card {
-      transition: background-color 0.2s, transform 0.7s ease-in-out 0.5s,
-        opacity 0.7s 0.5s;
-
-      &::before,
-      &::after {
-        transition: opacity 0.2s 1.5s;
-      }
-    }
-
-    &:nth-child(3) .experience__card {
-      transition: background-color 0.2s, transform 0.7s ease-in-out 0.8s,
-        opacity 0.7s 0.8s;
-
-      &::before,
-      &::after {
-        transition: opacity 0.2s 1.7s;
-      }
-    }
-
-    &:nth-child(4) .experience__card {
-      transition: background-color 0.2s, transform 0.7s ease-in-out 1s,
-        opacity 0.7s 1s;
-
-      &::before,
-      &::after {
-        transition: opacity 0.2s 1.8s;
-      }
-    }
-  }
-
-  &__card {
-    @extend %shadow;
-
-    position: relative;
-    display: block;
-    padding: 30px 30px;
-    color: $color-text;
-    text-decoration: none;
-    background-color: $color-white;
-    opacity: 0;
-    transition: background-color 0.2s, transform 0.7s ease-in-out 0.2s,
-      opacity 0.5s 0.2s;
-    transform: translateX(50%);
-
-    &:hover,
-    &:focus {
-      color: $color-white;
-      background-color: $color-primary;
-    }
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      top: 50%;
-      left: -70px;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      transition: opacity 0.2s 1s;
-
-      .scroll-item--active & {
-        opacity: 1;
-      }
-
-      @include breakpoint-max(xs) {
-        left: -30px;
-      }
-    }
-
-    &::before {
-      width: 40px;
-      height: 40px;
-      background-color: $color-grey;
-    }
-
-    &::after {
-      width: 20px;
-      height: 20px;
-      border: 2px solid $color-primary;
-      border-radius: 50%;
-    }
-
-    &-title {
-      margin-bottom: 10px;
-    }
-
-    &-date {
-      margin: 0;
-      margin-bottom: 20px;
-      color: $color-dark-grey;
-      font-size: $fs-xxs;
-    }
-
-    &-description {
-      margin: 0;
-    }
-  }
-}
-// === / EXPERIENCE ===
-
-// === CONTACTS ===
+// === footer ===
 .contacts {
+  height: 30vh;
   color: $color-white;
   text-align: center;
   background-color: $color-text;
@@ -1353,91 +918,13 @@ body {
     }
   }
 }
+// === / footer ===
 
-.contacts__logo {
-  display: inline-block;
-  margin-bottom: 25px;
-  opacity: 0;
-  transition: 1s;
-  transform: translateY(80%);
-
-  svg {
-    width: 100px;
-    height: auto;
-    fill: $color-white;
-  }
-
-  .st0, .st5 {
-    fill: none;
-    stroke: $color-white
-  }
-}
-
-.arrow-up {
-  @extend %btn;
-
-  position: relative;
-  width: 20px;
-  height: 20px;
-  margin-bottom: 45px;
-
-  animation-name: up-down;
-  animation-duration: 0.8s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
-  animation-direction: alternate;
-
-  &:hover {
-    animation-play-state: paused;
-
-    &::before,
-    &::after {
-      background-color: $color-primary;
-    }
-  }
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    width: 100%;
-    height: 3px;
-    background-color: $color-white;
-    transform: rotate(45deg);
-    transform-origin: 0 0;
-  }
-
-  &:before {
-    left: -50%;
-    transform-origin: 100% 50%;
-    transform: rotate(-45deg);
-  }
-}
-
-.copyright {
-  font-size: $fs-xxs;
-  opacity: 0.7;
-
-  a {
-    color: $color-white;
-    text-decoration: none;
-    transition: $transition;
-
-    &:hover {
-      color: $color-primary;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-    }
-  }
-}
-// === / CONTACTS ===
 
 // === Scroll animation ===
-
 .scroll-item--active,
 .scroll-item--active .scroll-show {
   transform: translate(0, 0);
   opacity: 1;
 }
-
 // / Scroll animation ===
