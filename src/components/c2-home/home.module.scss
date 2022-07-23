@@ -1,0 +1,61 @@
+@import "../../css/style.scss";
+// === GREETING ===
+.greeting {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+
+  &__container {
+    width: 100%;
+
+    @include breakpoint-max(xl) {
+      padding-left: 50px;
+    }
+
+    @include breakpoint-max(lg) {
+      padding-left: 0;
+    }
+
+
+    @include breakpoint-max(sm) {
+      max-width: 400px;
+      padding-left: 20px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    margin-bottom: 35px;
+    font-size: $fs-xl;
+    font-weight: $fw-bold;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateX(-5%);
+    transition: 1s ease-in-out;
+
+    @include breakpoint-max(xl) {
+      font-size: 45px;
+    }
+
+    @include breakpoint-max(lg) {
+      font-size: 40px;
+    }
+
+    @include breakpoint-max(md) {
+      font-size: 28px;
+    }
+
+    @include breakpoint-max(sm) {
+      line-height: 1.5;
+    }
+  }
+
+  &__btn {
+    opacity: 0;
+    transform: translateX(-30%);
+    transition: transform 1s ease-in-out 0.6s, opacity 1.2s ease 0.6s,
+    color 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+}
+
+// === / GREETING ===

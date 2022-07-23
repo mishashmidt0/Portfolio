@@ -1,87 +1,58 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {v4 as uuidv4} from "uuid"
-import {clickBtn, resetNav} from "./utils/utilsHeader";
-
+import { sectionObserve} from "./utils/utilsHeader";
+import style from "./header.module.scss"
 
 export const Header = () => {
+    const [isActive, setIsActive] = useState(false)
+    const [isHeader, setIsHeader] = useState(false)
     const nav = [
-        {name: "Home", href: "#greeting"},
-        {name: "About", href: "#about"},
-        {name: "Contacts", href: "#contacts"},
-        {name: "Skills", href: "#skills"},
-        {name: "Portfolio", href: "#portfolio"},
-        {name: "Home", href: "#greeting"},
-        {name: "Feedback", href: "#feedback"},
-
+        {id: "greeting", name: "Приветствие", href: "#greeting"},
+        {id: "about", name: "О себе", href: "#about"},
+        {id: "contacts", name: "Контакты", href: "#contacts"},
+        {id: "skills", name: "Навыки", href: "#skills"},
+        {id: "portfolio", name: "Проекты", href: "#portfolio"},
+        {id: "feedback", name: "Обратная связь", href: "#feedback"},
     ]
 
     useEffect(() => {
-        let navLinks = document.querySelectorAll(".nav__link");
-        let header = document.querySelector(".header");
-        let burgerBtn = document.querySelector(".burger");
+        const sections = document.querySelectorAll("section");
+        sections.forEach(section => sectionObserve.observe(section))
 
         window.addEventListener("mousemove", (mouseEvent) => {
             if (mouseEvent.clientY >= 0 && mouseEvent.clientY <= 60) {
-                header.classList.add("header--active")
+                setIsHeader(true)
             }
         })
 
         window.addEventListener("scroll", () => {
             let scrollDistance = window.scrollY;
-            let sections = document.querySelectorAll(".section");
-            scrollDistance > 20 ? header.classList.add("header--active") : header.classList.remove("header--active")
-
-            for (let i = 0; i < sections.length; i++) {
-
-                let sectionPosition = sections[i].offsetTop;
-
-                let navItems = document.querySelectorAll(".nav__item");
-
-                if (sectionPosition - header.clientHeight < scrollDistance) {
-                    for (let navLink of navLinks) {
-                        navLink.classList.remove("nav__link--active");
-                    }
-                    navItems[i].querySelector("a").classList.add("nav__link--active");
-                }
-
-                let contacts = document.querySelector(".contacts");
-                let contactsPosition = contacts.offsetTop - 200;
-
-                if (contactsPosition - header.clientHeight < scrollDistance) {
-                    for (let navLink of navLinks) {
-                        navLink.classList.remove("nav__link--active");
-                    }
-                    navItems[i].querySelector("a").classList.add("nav__link--active");
-                }
-            }
+            scrollDistance > 20 ?   setIsHeader(true) : setIsHeader(false)
         });
 
-        burgerBtn.addEventListener("click", () => clickBtn(burgerBtn, header));
-
-        // закрываем бургер при клике на ссылку в меню
-        for (let navLink of navLinks) {
-            navLink.addEventListener("click", () => resetNav(burgerBtn, header));
-        }
-        // закрываем бургер меню при ресайзе окна
-        window.addEventListener("resize", () => resetNav(burgerBtn, header));
-
+        window.addEventListener("resize",  ()=>clickBtn(false));
     }, [])
 
-    return (
-        <header className="header">
-            <div className="container header__container">
-                <a className="logo" href="src/components/c1-header/Header#">M</a>
 
-                <button className="burger">
-                    <span className="visually-hidden">Open menu</span>
-                    <span className="burger__line"></span>
+    const clickBtn = (value) => {
+        setIsActive(value)
+    }
+
+    return (
+        <header className={`${style.header} ${isActive? style["header--active-nav"]: ""} ${isHeader? style["header--active"]: ""}`}>
+            <div className={`${style["header__container"]}`}>
+                <a className={style.logo} href="src/components/c1-header/Header#">M</a>
+
+                <button className={`${style.burger} ${isActive? style["burger--active"]: ""} `} onClick={()=>clickBtn(!isActive)}>
+                    <span className={style["visually-hidden"]}>Open menu</span>
+                    <span className={style["burger__line"]}></span>
                 </button>
 
-                <nav className="nav">
-                    <ul className="nav__list">
+                <nav className={style.nav}>
+                    <ul className={style["nav__list"]}>
                         {nav.map(el =>
-                            <li className="nav__item" key={uuidv4()}>
-                                <a className="nav__link" href={el.href}>{el.name}</a>
+                            <li className={style["nav__item"]} key={uuidv4()}>
+                                <a className={style["nav__link"]} href={el.href} data-id={el.id} onClick={()=>clickBtn(false)}>{el.name}</a>
                             </li>)}
                     </ul>
                 </nav>

@@ -5,10 +5,10 @@ export const TypeEffect = () => {
         return (
             <>
                 <ReactTypingEffect
-                    text={["Mikhail", "Ponomarenko Mikhail"]}
+                    text={["Пономаренко Михаил.", "Михаил"]}
                     eraseSpeed={100}
-                    eraseDelay={2000}
-                    typingDelay={1000}
+                    eraseDelay={35000}
+                    typingDelay={300}
                     cursorRenderer={cursor => <span>{cursor}</span>}
                     displayTextRenderer={(text) => {
                         return (

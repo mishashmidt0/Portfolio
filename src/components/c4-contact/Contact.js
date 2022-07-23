@@ -1,43 +1,30 @@
 import React from 'react';
+import style from "./contact.module.scss"
+import {v4 as uuidv4} from "uuid"
 
 export const Contact = () => {
+
+    const contacts = [
+        {id: uuidv4(), name: "Telegram: ", href: "https://t.me/MishaShmidt", title: "MishaShmidt"},
+        {id: uuidv4(), name: "Почта: ", href: "mailto:mishashmidt0@gmail.com", title: "mishashmidt0@gmail.com"},
+        {id: uuidv4(), name: "GitHub: ", href: "https://github.com/mishashmidt0", title: "https://github.com/mishashmidt0"},
+        {id: uuidv4(), name: "LinkedIn: ", href: "https://www.linkedin.com/in/mikhail-ponomarenko-b38050208/", title: "mikhail-ponomarenko"},
+    ]
+
     return (
-        <section className="contacts section" id="contacts">
-            <div className="container container--s contacts__container">
-                <a className="arrow-up" href="#about">
+        <section className={`${style.contacts} section`} id="contacts">
+            <div className={`contacts ${style["contacts__container"]}  container--s`}>
+                <a className={`${style["arrow-up"]}`} href="#about">
                 </a>
-                <p className="contacts__slogan scroll-item">Living, learning, & leveling up one day at a time.</p>
-                <ul className="contacts__list scroll-item">
-                    <li>
-                        <a className="contacts__link icon-email scroll-show" href="mailto:elenafrontend@ya.ru"
-                           title="elenafrontend@ya.ru">
-                            <span className="visually-hidden">email</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a className="contacts__link icon-phone scroll-show" href="tel:+79270337365"
-                           title="+7 9270 33 73 65">
-                            <span className="visually-hidden">phone</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a className="contacts__link icon-telegram scroll-show" href="https://t.me/gumelena"
-                           title="gumelena">
-                            <span className="visually-hidden">telegram</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a className="contacts__link icon-linkedin scroll-show" href="https://www.linkedin.com/in/elenafrontend/"
-                            title="elenafrontend">
-                            <span className="visually-hidden">linkedin</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a className="contacts__link icon-github scroll-show" href="https://github.com/elenafrontend"
-                           title="elenafrontend">
-                            <span className="visually-hidden">github</span>
-                        </a>
-                    </li>
+                <p className={`${style["contacts__slogan"]} scroll-item`}>Контакты</p>
+                <ul className={`${style["contacts__list"]} scroll-item`}>
+                    {contacts.map(elem =>
+                        <li key={elem.id} >
+                            <span>{elem.name}</span>
+                            <a className={`${style["contacts__link"]} scroll-show`} href={elem.href} target="_blank" rel="noreferrer" >
+                               {elem.title}
+                            </a>
+                        </li>)}
                 </ul>
             </div>
         </section>

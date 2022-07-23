@@ -1,24 +1,33 @@
 import React from 'react';
 import myPhoto from "../../img/MyPhoto.jpg"
+import style from "./about.module.scss"
+import {v4 as uuidv4} from "uuid"
+
 export const About = () => {
+    const myInfo = [
+        {id: uuidv4(), paragraph: "Пономаренко Михаил", text: ""},
+        {id: uuidv4(), paragraph: "Проживаю", text: " в г. Саратов"},
+        {id: uuidv4(), paragraph: "Возраст:", text: " 24 года"},
+        {id: uuidv4(), paragraph: "Образование:", text: " ВКА им. Можайского, инженер"},
+        {id: uuidv4(), paragraph: "Опыт: ", text: "более 6 месяцев"},
+    ]
     return (
-        <section className="about section" id="about">
-            <div className="container about__container">
-                <div className="about__photo scroll-item">
-                    <figure className="about__photo-wrapper scroll-show">
+        <section className={`${style.about} section`} id="about">
+            <div className={`container ${style["about__container"]}`}>
+                <div className={`${style["about__photo"]} scroll-item`}>
+                    <figure className={`${style["about__photo-wrapper"]} scroll-show`}>
                         <picture>
                             <img src={myPhoto} alt="MyPhoto"/>
                         </picture>
                     </figure>
                 </div>
                 <div className="scroll-item">
-                    <div className="about__content scroll-show">
-                        <h2 className="title">About Me</h2>
-                        <p className="about__text text">I like to code things from scratch, and enjoy bringing ideas to life in the
-                            browser. Interested in working on ambitious projects with positive people.</p>
-                        <p className="about__text text">Skills can be taught, personality is inherent. I prefer to keep learning,
-                            continue challenging myself and do interesting things.</p>
-                        <a className="btn" href="https://elenafrontend.github.io/portfolio/Gumerova_Elena_Frontend_Developer.pdf"
+                    <div className={`${style["about__content"]} scroll-show`}>
+                        <h2 className="title">О себе</h2>
+                        <ul className={`${style["about__text"]} text ${style.list}`}>
+                            {myInfo.map(elem=>  <li key={elem.id}><span> {elem.paragraph}</span> {elem.text}</li>)}
+                        </ul>
+                        <a className="btn" href="#pdf"
                            target="_blank" rel="noreferrer">Download CV</a>
                     </div>
                 </div>

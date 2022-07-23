@@ -25,30 +25,20 @@ const isMobile = {
     },
 };
 
-export function showScrollAnim(scrollItems) {
-    for (let scrollItem of scrollItems) {
-        // высота элемента
-        const scrollItemHeight = scrollItem.offsetHeight;
-        // положение на странице (прокрутка страницы top окна + положение элемента относительно окна)
-        const scrollItemOffset =
-            window.pageYOffset + scrollItem.getBoundingClientRect().top;
-        // при прокрутке на какую часть элемента показываем его на странице (прокрутив 4 часть элемента)
-        const scrollItemPart = 4;
-
-        // определяем точку появления элемента - после появления в окне четверти элемента
-        let viewPoint = window.innerHeight - scrollItemHeight / scrollItemPart;
-        // если элемент больше окна, при прокрутке четверти окна
-        if (scrollItemHeight > window.innerHeight) {
-            viewPoint = window.innerHeight - window.innerHeight / scrollItemPart;
+export const scrollObserve = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.id !== "portfolio" ?
+                entry.target.classList.add("scroll-item--active")
+                : entry.target.classList.add("scroll-item--active-portfolio");
+            observer.unobserve(entry.target)
         }
+    })
 
-        if ( window.pageYOffset > scrollItemOffset - viewPoint) {
-            scrollItem.classList.add("scroll-item--active");
-        }
-    }
-}
+}, {})
 
-export function scrollToggle(elem, classActive,header) {
+
+export function scrollToggle(elem, classActive, header) {
     // ширина скролла
     let body = document.body;
     let paddingOffset = window.innerWidth - body.offsetWidth + "px";

@@ -1,0 +1,18 @@
+@import "../../css/style.scss";
+
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  &__container{
+    color: $color-text
+  }
+
+  &__link{
+    color: $color-text;
+    font-size: $fs-xs;
+    text-decoration: none;
+    font-weight: 400;
+  }
+}

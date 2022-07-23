@@ -1,18 +1,16 @@
-import {scrollToggle} from "../../../util/util";
+export const sectionObserve = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const navLinks = document.querySelectorAll(".nav__link");
+            navLinks.forEach(link => link.classList.remove("nav__link--active"))
+
+            navLinks.forEach(link => {
+                if( link.getAttribute("data-id") === entry.target.id) link.classList.add("nav__link--active")
+            })
+        }
+    })
+
+}, { threshold: .4})
 
 
-// функция закрытия меню бургер
-export const resetNav =  (burgerBtn,header) =>{
-    if (burgerBtn.classList.contains("burger--active")) {
-        burgerBtn.classList.remove("burger--active");
-        header.classList.remove("header--active-nav");
-        scrollToggle(burgerBtn, "burger--active", header);
-    }
-};
 
-export const clickBtn =  (burgerBtn,header)=> {
-    header.classList.toggle("header--active-nav");
-    burgerBtn.classList.toggle("burger--active");
-    // блокируем/возобновляем скролл страницы
-    scrollToggle(burgerBtn, "burger--active", header);
-}
