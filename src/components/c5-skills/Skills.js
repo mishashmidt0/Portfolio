@@ -6,10 +6,11 @@ export const Skills = () => {
 
     const js = [
         {id: uuidv4(), desc:"Javascript", name: ["ES6+", "Typescript", "React"] },
-        {id: uuidv4(), desc:"Для управления состоянием приложения", name: ["redux", "redux-thunk","redux-toolkit"] },
-        {id: uuidv4(), desc:"Для работы с данными и api ", name: ["Apollo Client", "axios","fetch"] },
+        {id: uuidv4(), desc:"Для управления состоянием приложения", name: ["Redux", "redux-thunk","redux-toolkit"] },
+        {id: uuidv4(), desc:"Для работы с данными и api ", name: ["Apollo Client", "Axios","fetch","Postman"] },
         {id: uuidv4(), desc:"Небольшой опыт по созданию серверов на ", name: ["Node.js"] },
-        {id: uuidv4(), desc:"Анализ и форматирования кода", name: ["ESLint, Prettier","Husky"] },
+        {id: uuidv4(), desc:"Базы данных ", name: ["PostgreSQL"] },
+        {id: uuidv4(), desc:"Анализ и форматирования кода", name: ["ESLint", "Prettier","Husky"] },
         {id: uuidv4(), desc:"Для создания UI компонентов в изоляции использовал", name: ["Storybook"] },
         {id: uuidv4(), desc:"Таск-менеджеры", name: ["GitHub", "Trello"] },
         {id: uuidv4(), desc:"Контроль версий", name: ["Git"] },
@@ -22,7 +23,7 @@ export const Skills = () => {
     ]
 
     const test = [
-        {id: uuidv4(), desc:"Работал с unit тестами на ", name: ["jest"] },
+        {id: uuidv4(), desc:"Работал с unit тестами на ", name: ["Jest"] },
     ]
 
 

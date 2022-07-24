@@ -1,13 +1,20 @@
 import React from 'react';
 import style from "./feedback.module.scss";
+import {FormContainer} from "./formik/Form";
+
+
 
 export const Feedback = () => {
+
+
     return (
-        <section className={`${style.feedback} section`} id="feedback">
-            <div className="container feedback__container">
-                FeedbackFeedbackFeedbackFeedbackFeedback
+    <section className={`${style.feedback} section`} id="contacts">
+        <div className={`contacts ${style["feedback__container"]}  container--s`}>
+            <div className={style["feedback__list"]}>
+                <FormContainer />
             </div>
-        </section>
+        </div>
+    </section>
     );
 };
 
