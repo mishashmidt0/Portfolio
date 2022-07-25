@@ -7,7 +7,7 @@ export const Contact = () => {
     const contacts = [
         {id: uuidv4(), name: "Telegram: ", href: "https://t.me/MishaShmidt", title: "MishaShmidt"},
         {id: uuidv4(), name: "Почта: ", href: "mailto:mishashmidt0@gmail.com", title: "mishashmidt0@gmail.com"},
-        {id: uuidv4(), name: "GitHub: ", href: "https://github.com/mishashmidt0", title: "https://github.com/mishashmidt0"},
+        {id: uuidv4(), name: "GitHub: ", href: "https://github.com/mishashmidt0", title: "mishashmidt0"},
         {id: uuidv4(), name: "LinkedIn: ", href: "https://www.linkedin.com/in/mikhail-ponomarenko-b38050208/", title: "mikhail-ponomarenko"},
     ]
 

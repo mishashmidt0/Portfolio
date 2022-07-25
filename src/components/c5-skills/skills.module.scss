@@ -37,7 +37,11 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-
+    margin: 0 auto;
+    padding-left: 30px;
+    @include breakpoint-max(xs) {
+      padding-left: 20px;
+    }
   }
 
   h3 {
@@ -46,13 +50,13 @@
 
   &__item {
     display: flex;
-    // width: 50px;
     align-items: center;
     text-align: center;
     transition: $transition;
+    flex-wrap: wrap;
 
     .description {
-
+      text-align: start;
     }
 
     ul {

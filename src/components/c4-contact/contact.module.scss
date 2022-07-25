@@ -29,10 +29,9 @@
 
   &__list {
     @extend %list;
-
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: start;
     margin: 0 auto;
     margin-bottom: 30px;
@@ -45,7 +44,7 @@
     }
 
     @include breakpoint-max(xs) {
-      width: 100%;
+      width: auto;
     }
   }
 
@@ -53,15 +52,13 @@
     color: $color-primary;
     font-size: $fs-s;
     text-decoration: none;
-
     opacity: 0;
     transform: translateY(20%);
     transition: background-color 0.5s, transform 0.5s ease 0.2s,
     opacity 0.5s 0.2s;
-
+    padding: 0.2em 0.3em;
     @include breakpoint-max(xs) {
-      width: 40px;
-      height: 40px;
+      font-size: $fs-xs;
     }
 
     &::before {
@@ -73,8 +70,11 @@
 
     &:hover,
     &:hover.scroll-show {
-      background-color: $color-white;
+      background: rgba(135, 131, 120, 0.15);
+      color: $color-coral;
+      border-radius: 3px;
       transform: translateY(-5px);
+      transition: 0.4s;
 
       &::before {
         color: $color-primary;

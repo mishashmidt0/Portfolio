@@ -38,6 +38,19 @@
         height: 70px;
         margin-bottom: 10px;
       }
+
+      @include breakpoint-max(sm) {
+        input{
+          width: 300px;
+          height: 40px;
+        }
+        textarea{
+          width: 300px;
+          height: 70px;
+          margin-bottom: 10px;
+        }
+      }
+
     }
   }
 
@@ -50,15 +63,10 @@
     }
 
     @include breakpoint-max(md) {
-      margin-top: 20px;
-      margin-left: 90px;
+      margin: 0 20px;
     }
 
-    @include breakpoint-max(xs) {
-      margin-left: 50px;
-    }
   }
-
 }
 
 // === / feedback ===

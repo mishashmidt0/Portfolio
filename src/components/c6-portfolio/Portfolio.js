@@ -65,7 +65,7 @@ export const Portfolio = () => {
     ]
     return (
         <section className={`${style.portfolio} section`} id="portfolio">
-            <div className="container container--m">
+            <div className={`${style["portfolio__container"]} container container--m`}>
                 <h2 className={`title ${style["portfolio__title"]} scroll-item`}>Проекты</h2>
                 <ul className={`${style["portfolio__list"]}`}>
 
@@ -78,7 +78,7 @@ export const Portfolio = () => {
                                     }}>
                                     </div>
                                     <div className={`${style["portfolio__card-about"]}`}>
-                                        <h1 className={`${style["portfolio__card-title"]} subtitle`}>{project.name}</h1>
+                                        <h2 className={`${style["portfolio__card-title"]}`}>{project.name}</h2>
                                         <p className={`${style["portfolio__card-description"]}`}>{project.description}</p>
 
                                         <p className={style.stackContainer}>Технологии: <br/>{project.stack.map(el=><span key={uuidv4()} className={style.stack}>{el}</span>)}</p>

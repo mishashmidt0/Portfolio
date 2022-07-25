@@ -8,8 +8,8 @@ export const About = () => {
         {id: uuidv4(), paragraph: "Пономаренко Михаил", text: ""},
         {id: uuidv4(), paragraph: "Проживаю", text: " в г. Саратов"},
         {id: uuidv4(), paragraph: "Возраст:", text: " 24 года"},
-        {id: uuidv4(), paragraph: "Образование:", text: " ВКА им. Можайского, инженер"},
-        {id: uuidv4(), paragraph: "Опыт: ", text: "более 6 месяцев"},
+        {id: uuidv4(), paragraph: "Образование:", text: " Высшее, ВКА им. Можайского, инженер ракетно-космических комплексов"},
+        {id: uuidv4(), paragraph: "Опыт: ", text: "более 4 месяцев занимаюсь разработкой приложений совместно с командой и самостоятельно"},
     ]
     return (
         <section className={`${style.about} section`} id="about">
