@@ -181,7 +181,7 @@ body {
   display: inline-block;
   position: relative;
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding-bottom: 10px;
   font-size: $fs-l;
   border-bottom: 4px solid $color-primary;
@@ -205,7 +205,7 @@ body {
   font-weight: $fw-bold;
   overflow: hidden;
   transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-
+  margin: 0 10px;
   &--big {
     font-size: $fs-m;
 

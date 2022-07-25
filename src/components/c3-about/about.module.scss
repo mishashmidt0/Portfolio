@@ -13,7 +13,7 @@
 
   &__photo {
     position: relative;
-    margin-right: 110px;
+    margin-right: 80px;
     margin-left: 20px;
 
     &:hover {
@@ -88,10 +88,16 @@
     transition: 0.7s ease-in-out 0.5s;
 
     .list {
+      max-width: 400px;
       padding: 0;
       list-style-type: none;
-      span {
-        font-weight: 700;
+      line-height: 1.4;
+      li{
+        margin-bottom: 10px;
+        span {
+          font-weight: 700;
+
+        }
       }
     }
   }
